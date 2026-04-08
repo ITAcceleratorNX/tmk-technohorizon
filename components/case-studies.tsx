@@ -25,14 +25,16 @@ type CaseStudyStores = {
 
 const cases: (CaseStudyWeb | CaseStudyStores)[] = [
   {
-    name: "WorkFlow",
+    name: "Workflow",
     description:
-      "Корпоративное приложение для сотрудников: бронирование переговорок, сервисные заявки, умный офис и ИИ-помощник.",
+      "Цифровая инфраструктура для современных офисов и высокоэффективных команд.Workflow объединяет управление офисом, продуктивностью и wellbeing в одной системе.",
     features: [
-      "Бронирование переговорных и слотов",
-      "Сервисные заявки и статусы",
-      "Умный офис (свет, розетки, шторы и др.)",
-      "ИИ-чат и демо-режим для ознакомления",
+      "Office management",
+      "Productivity",
+      "Wellbeing + AI",
+      "Smart office",
+      "Healthy tracker",
+      "Офисные сервисы",
     ],
     highlighted: false,
     kind: "stores",
@@ -41,8 +43,16 @@ const cases: (CaseStudyWeb | CaseStudyStores)[] = [
   },
   {
     name: "Extra Space",
-    description: "Умное управление складом и хранением для бизнеса и частных клиентов.",
-    features: ["Учёт запасов", "Оптимизация площадей", "Система бронирования", "Мобильное приложение"],
+    description:
+      "Цифровая storage-платформа с личным кабинетом, CRM-логикой и онлайн-оплатой.Extra Space объединяет клиента, менеджера и складскую логику в одном цифровом сервисе.",
+    features: [
+      "Личный кабинет клиента",
+      "CRM и панель менеджера",
+      "Оформление заказов",
+      "Электронный договор / SMS-подписание",
+      "Эквайринг и онлайн-оплата",
+      "Логика доставки и управления заказами",
+    ],
     highlighted: false,
     kind: "web",
     href: "https://extraspace.kz/",
@@ -50,25 +60,28 @@ const cases: (CaseStudyWeb | CaseStudyStores)[] = [
   {
     name: "Vi-Tech",
     description:
-      "Платформа операционного совершенства: стандартизация работы, аудиты, решение проблем и непрерывное улучшение.",
+      "AI-платформа для улучшения операционной эффективности и бизнес-процессов.Vi-Tech помогает командам стандартизировать работу, проводить аудиты, анализировать проблемы и внедрять улучшения с поддержкой AI.",
     features: [
-      "Цифровые стандарты работы (StandardiziT)",
-      "Аудиты и Go & See (GoSeeiT)",
-      "Решение проблем и 8D (ResolviT)",
-      "Идеи и внедрение улучшений (ImproviT)",
+      "Standard work",
+      "Audits",
+      "Problem solving",
+      "Idea generation & implementation",
+      "Интеграции со сторонними системами",
+      "Адаптация под разные отрасли",
     ],
     highlighted: true,
     kind: "web",
     href: "https://vi-tech.io/",
   },
   {
-    name: "NBS",
+    name: "Narxoz Business School",
     description:
-      "Narxoz Business School — бизнес-образование мирового уровня в Центральной Азии. Программы MBA, Executive MBA, DBA и Executive Education для тех, кто управляет компаниями и внедряет инновации: международные стандарты, практика экспертов и локальный контекст.",
+      "Современный лендинг для образовательного продукта.Платформа, которая помогает презентовать программу, ценность и digital-подход школы в понятной и сильной форме.",
     features: [
-      "MBA, Executive MBA, DBA и Executive Education",
-      "Корпоративное обучение и развитие топ-менеджмента",
-      "Сообщество лидеров в регионе",
+      "Продающая структура лендинга",
+      "Современный UI/UX",
+      "Подача образовательного продукта",
+      "Адаптация под digital-аудиторию",
     ],
     highlighted: false,
     kind: "web",
@@ -128,7 +141,9 @@ export function CaseStudies() {
 
               <div className="mb-6">
                 <h3 className="text-2xl font-semibold text-foreground mb-2">{caseStudy.name}</h3>
-                <p className="text-muted-foreground leading-relaxed">{caseStudy.description}</p>
+                <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                  {caseStudy.description}
+                </p>
               </div>
 
               <ul className="space-y-3">

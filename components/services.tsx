@@ -1,60 +1,90 @@
 "use client"
 
-import { Globe, LayoutDashboard, Smartphone, Settings2 } from "lucide-react"
+import { LayoutTemplate, MonitorSmartphone, Server, PlugZap } from "lucide-react"
 import { AnimatedSection } from "./animated-section"
 
-const services = [
+const offerings = [
   {
-    icon: Globe,
-    title: "Сайты и лендинги",
-    description: "Современный дизайн, высокая конверсия и отличная производительность.",
+    icon: LayoutTemplate,
+    title: "UX/UI и продуктовая логика",
+    description:
+      "Проектируем пользовательские сценарии, роли, дашборды и интерфейсы — чтобы продукт был понятным и эффективным.",
   },
   {
-    icon: LayoutDashboard,
-    title: "Веб-платформы и дашборды",
-    description: "Сложные веб-приложения, админки и панели данных, готовые к масштабированию.",
+    icon: MonitorSmartphone,
+    title: "Web и мобильная разработка",
+    description:
+      "Создаём сайты, веб-платформы и мобильные приложения с сильной функциональностью и современным UX.",
   },
   {
-    icon: Smartphone,
-    title: "Мобильные приложения",
-    description: "Нативные и кроссплатформенные приложения для iOS и Android с продуманным UX.",
+    icon: Server,
+    title: "Архитектура и бэкенд",
+    description:
+      "Разрабатываем API, админ-панели, структуры данных, процессы и масштабируемые серверные системы.",
   },
   {
-    icon: Settings2,
-    title: "Автоматизация и интеграции",
-    description: "Связываем инструменты, автоматизируем процессы и делаем кастомные интеграции.",
+    icon: PlugZap,
+    title: "Интеграции, ИИ и умные решения",
+    description:
+      "Подключаем CRM, платежи, ERP, возможности на базе ИИ и автоматизацию — единая цифровая экосистема.",
   },
 ]
 
 export function Services() {
   return (
-    <section id="services" className="scroll-mt-24 py-24 md:py-32 relative bg-card/30">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <AnimatedSection>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              Что мы делаем
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Полный цикл разработки цифровых продуктов.
+    <section
+      id="services"
+      className="scroll-mt-24 relative overflow-hidden py-24 md:py-32"
+    >
+      <div
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-secondary/40 via-background to-background dark:from-card/30"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/3 h-[min(42rem,90vw)] w-[min(42rem,90vw)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.14),rgba(139,92,246,0.08),transparent_65%)] blur-3xl dark:bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.18),rgba(139,92,246,0.1),transparent_65%)]"
+        aria-hidden
+      />
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+        <AnimatedSection variant="blur">
+          <div className="mx-auto mb-16 max-w-4xl text-center md:mb-20">
+            <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+              Услуги
             </p>
+            <h2 className="text-balance text-3xl font-bold leading-[1.15] tracking-tight text-foreground md:text-4xl lg:text-[2.5rem]">
+              От интерфейса до архитектуры — всё необходимое для цифрового продукта
+            </h2>
           </div>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {services.map((service, index) => (
-            <AnimatedSection key={index} delay={index * 100}>
-              <div className="group relative rounded-2xl border border-border bg-background p-8 hover:border-accent/50 transition-all duration-300 h-full">
-                <div className="flex items-start gap-6">
-                  <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
-                    <service.icon className="w-7 h-7 text-muted-foreground group-hover:text-accent transition-colors" />
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+          {offerings.map((item, index) => (
+            <AnimatedSection key={item.title} delay={index * 90}>
+              <article
+                className="group relative flex h-full flex-col rounded-2xl border border-border/70 bg-card/45 p-8 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.08)] backdrop-blur-md transition-all duration-300 dark:border-border/50 dark:bg-card/35 dark:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.45)] dark:backdrop-blur-xl md:rounded-[1rem] hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_20px_48px_-12px_rgba(99,102,241,0.15)] dark:hover:shadow-[0_20px_48px_-12px_rgba(0,0,0,0.55)]"
+              >
+                <div
+                  className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500/[0.06] via-transparent to-violet-500/[0.07] opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:rounded-[1rem]"
+                  aria-hidden
+                />
+
+                <div className="relative flex flex-col gap-5">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-border/60 bg-gradient-to-br from-indigo-500/15 to-violet-500/20 text-foreground shadow-sm transition-colors duration-300 group-hover:border-accent/25 group-hover:from-indigo-500/22 group-hover:to-violet-500/28 dark:from-indigo-400/12 dark:to-violet-500/18">
+                    <item.icon
+                      className="h-[1.35rem] w-[1.35rem] stroke-[1.35] text-accent"
+                      aria-hidden
+                    />
                   </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-2">{service.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                  <div className="space-y-3">
+                    <h3 className="text-lg font-semibold tracking-tight text-foreground md:text-xl">
+                      {item.title}
+                    </h3>
+                    <p className="text-pretty text-[0.9375rem] leading-relaxed text-muted-foreground md:text-base">
+                      {item.description}
+                    </p>
                   </div>
                 </div>
-              </div>
+              </article>
             </AnimatedSection>
           ))}
         </div>

@@ -3,6 +3,7 @@ import { Hero } from "@/components/hero"
 import { CoreValue } from "@/components/core-value"
 import { CaseStudies } from "@/components/case-studies"
 import { Services } from "@/components/services"
+import { IndustriesSection } from "@/components/industries-section"
 import { Process } from "@/components/process"
 import { Testimonials } from "@/components/testimonials"
 import { WhyUs } from "@/components/why-us"
@@ -15,6 +16,7 @@ export const landingBodySections: ComponentType[] = [
   CoreValue,
   CaseStudies,
   Services,
+  IndustriesSection,
   Process,
   Testimonials,
   WhyUs,
