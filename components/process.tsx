@@ -44,14 +44,7 @@ export function Process() {
                 <div className="relative z-10 w-16 h-16 rounded-2xl bg-card border border-border flex items-center justify-center mb-4 group-hover:border-accent/50 group-hover:bg-accent/10 transition-all duration-300">
                   <step.icon className="w-7 h-7 text-muted-foreground group-hover:text-accent transition-colors" />
                 </div>
-                
-                {/* Arrow for desktop */}
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-full -translate-x-1/2 text-muted-foreground/30">
-                    →
-                  </div>
-                )}
-                
+
                 <h3 className="text-lg font-semibold text-foreground mb-1">{step.title}</h3>
                 <p className="text-sm text-muted-foreground">{step.description}</p>
                 </div>

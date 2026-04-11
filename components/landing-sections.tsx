@@ -5,7 +5,7 @@ import { CaseStudies } from "@/components/case-studies"
 import { Services } from "@/components/services"
 import { IndustriesSection } from "@/components/industries-section"
 import { Process } from "@/components/process"
-import { Testimonials } from "@/components/testimonials"
+// import { Testimonials } from "@/components/testimonials"
 import { WhyUs } from "@/components/why-us"
 import { FAQ } from "@/components/faq"
 import { CTA } from "@/components/cta"
@@ -18,7 +18,7 @@ export const landingBodySections: ComponentType[] = [
   Services,
   IndustriesSection,
   Process,
-  Testimonials,
+  // Testimonials,
   WhyUs,
   FAQ,
   CTA,
