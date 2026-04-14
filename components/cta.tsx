@@ -3,7 +3,12 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Phone, MessageCircle, Send } from "lucide-react"
 import { AnimatedSection } from "./animated-section"
-import { CONTACT_PHONE_TEL } from "@/lib/contact"
+import { ContactRequestDialog } from "@/components/contact-request-dialog"
+import {
+  CONTACT_PHONE_TEL,
+  TELEGRAM_CHAT_URL,
+  WHATSAPP_CHAT_URL,
+} from "@/lib/contact"
 
 export function CTA() {
   return (
@@ -24,10 +29,16 @@ export function CTA() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-                <Button size="lg" className="bg-foreground text-background hover:bg-foreground/90 gap-2 group">
-                  Оставить заявку
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                <ContactRequestDialog>
+                  <Button
+                    size="lg"
+                    type="button"
+                    className="bg-foreground text-background hover:bg-foreground/90 gap-2 group"
+                  >
+                    Оставить заявку
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </ContactRequestDialog>
                 <Button size="lg" variant="outline" className="border-border hover:bg-secondary gap-2" asChild>
                   <a href={`tel:${CONTACT_PHONE_TEL}`}>
                     <Phone className="h-4 w-4" />
@@ -37,15 +48,25 @@ export function CTA() {
               </div>
 
               <div className="flex items-center justify-center gap-6">
-                <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a
+                  href={WHATSAPP_CHAT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
                   <MessageCircle className="w-5 h-5" />
                   WhatsApp
-                </button>
+                </a>
                 <div className="w-px h-4 bg-border" />
-                <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a
+                  href={TELEGRAM_CHAT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
                   <Send className="w-5 h-5" />
                   Telegram
-                </button>
+                </a>
               </div>
               </div>
             </AnimatedSection>
