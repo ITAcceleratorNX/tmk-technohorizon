@@ -14,4 +14,4 @@ export const CONTACT_REQUEST_EMAIL = "zubanyszarylkasyn@gmail.com"
 /** POST заявки: бэкенд ExtraSpace (SMTP). Переопределите для стейджа: NEXT_PUBLIC_LANDING_CONTACT_API_URL. */
 export const LANDING_CONTACT_API_URL =
   process.env.NEXT_PUBLIC_LANDING_CONTACT_API_URL?.trim() ||
-  "https://https://backend-vo00.onrender.com//tmk-technohorizon/landing-contact"
+  "https://backend-vo00.onrender.com/tmk-technohorizon/landing-contact"
