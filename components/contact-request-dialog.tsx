@@ -16,7 +16,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { CONTACT_REQUEST_EMAIL } from "@/lib/contact"
+import { CONTACT_REQUEST_EMAIL, LANDING_CONTACT_API_URL } from "@/lib/contact"
 
 const formSchema = z.object({
   name: z.string().min(1, "Укажите имя"),
@@ -55,29 +55,43 @@ export function ContactRequestDialog({ children }: { children: React.ReactNode }
 
     setSubmitting(true)
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(LANDING_CONTACT_API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(parsed.data),
       })
-      const data = (await res.json()) as { ok?: boolean; error?: string; message?: string }
+      const data = (await res.json()) as {
+        ok?: boolean
+        success?: boolean
+        error?: string
+        message?: string
+        detail?: string
+        retry_after?: number
+      }
 
-      if (res.ok && data.ok) {
+      if (res.ok && (data.ok === true || data.success === true)) {
         toast.success("Заявка отправлена. Мы свяжемся с вами.")
         setValues(empty)
         setOpen(false)
         return
       }
 
-      if (data.error === "NO_MAIL") {
+      if (res.status === 429 || data.error === "rate_limited") {
+        const sec = data.retry_after
         toast.error(
-          `Почта с сайта пока не настроена. Напишите на ${CONTACT_REQUEST_EMAIL} или в WhatsApp.`,
+          data.message ??
+            (typeof sec === "number"
+              ? `Слишком частые заявки. Попробуйте через ${sec} с.`
+              : "Слишком частые заявки. Попробуйте чуть позже."),
           { duration: 8000 },
         )
         return
       }
 
-      toast.error(data.message ?? data.error ?? "Не удалось отправить. Попробуйте позже.")
+      toast.error(
+        data.detail ?? data.message ?? data.error ?? "Не удалось отправить. Попробуйте позже.",
+        data.detail ? { duration: 10000 } : undefined,
+      )
     } catch {
       toast.error("Ошибка сети. Попробуйте позже.")
     } finally {

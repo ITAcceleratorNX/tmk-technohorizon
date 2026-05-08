@@ -8,5 +8,10 @@ export const WHATSAPP_CHAT_URL = "https://wa.me/77017771881"
 /** Telegram */
 export const TELEGRAM_CHAT_URL = "https://t.me/tokpanovkarim"
 
-/** Получатель заявок с формы (можно переопределить в .env как CONTACT_TO_EMAIL). */
-export const CONTACT_REQUEST_EMAIL = "Tokpanov.K@tmk-limited.com"
+/** Получатель заявок с формы (для подсказки в UI; фактический адрес задаётся на бэкенде: TMK_TECHNOHORIZON_CONTACT_EMAIL). */
+export const CONTACT_REQUEST_EMAIL = "zubanyszarylkasyn@gmail.com"
+
+/** POST заявки: бэкенд ExtraSpace (SMTP). Переопределите для стейджа: NEXT_PUBLIC_LANDING_CONTACT_API_URL. */
+export const LANDING_CONTACT_API_URL =
+  process.env.NEXT_PUBLIC_LANDING_CONTACT_API_URL?.trim() ||
+  "https://api.extraspace.kz/tmk-technohorizon/landing-contact"
