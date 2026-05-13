@@ -58,22 +58,6 @@ const cases: (CaseStudyWeb | CaseStudyStores)[] = [
     href: "https://extraspace.kz/",
   },
   {
-    name: "Vi-Tech",
-    description:
-      "Платформа для повышения операционной эффективности и улучшения бизнес-процессов.Vi-Tech помогает командам стандартизировать работу, проводить аудиты, анализировать проблемы и внедрять улучшения с поддержкой AI.",
-    features: [
-      "Standard work",
-      "Audits",
-      "Problem solving",
-      "Idea generation & implementation",
-      "Интеграции со сторонними системами",
-      "Адаптация под разные отрасли",
-    ],
-    highlighted: true,
-    kind: "web",
-    href: "https://vi-tech.io/",
-  },
-  {
     name: "Narxoz Business School",
     description:
       "Современный лендинг для образовательного продукта.Платформа, которая помогает презентовать программу, ценность и digital-подход школы в понятной и сильной форме.",
