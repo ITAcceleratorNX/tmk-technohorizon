@@ -1,5 +1,6 @@
 import type { ComponentType } from "react"
 import { Hero } from "@/components/hero"
+import { Marquee } from "@/components/marquee"
 import { CoreValue } from "@/components/core-value"
 import { CaseStudies } from "@/components/case-studies"
 import { Services } from "@/components/services"
@@ -13,6 +14,7 @@ import { CTA } from "@/components/cta"
 /** Меняйте порядок или закомментируйте блоки — вся структура лендинга в одном месте. */
 export const landingBodySections: ComponentType[] = [
   Hero,
+  Marquee,
   CoreValue,
   CaseStudies,
   Services,

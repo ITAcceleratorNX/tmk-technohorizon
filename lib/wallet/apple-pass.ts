@@ -31,8 +31,10 @@ export async function buildApplePass(baseUrl: string): Promise<Buffer> {
   const passTypeIdentifier = reqEnv("APPLE_PASS_TYPE_ID")
   const teamIdentifier = reqEnv("APPLE_TEAM_ID")
 
-  // Иконка/логотип: переиспользуем брендовую картинку сайта.
+  // Иконка — квадратная плитка (для системных экранов iOS).
   const icon = readFileSync(path.join(process.cwd(), "public", "apple-icon.png"))
+  // Логотип на карте — прозрачный вордмарк tmk. (читается на тёмном фоне карты).
+  const logo = readFileSync(path.join(process.cwd(), "public", "wallet", "logo.png"))
 
   // QR внутри карты ведёт на страницу проверки (ТЗ §8.1).
   const verifyUrl = `${baseUrl}${WALLET_DEMO.verifyPath}`
@@ -49,7 +51,7 @@ export async function buildApplePass(baseUrl: string): Promise<Buffer> {
     backgroundColor: "rgb(15, 17, 21)",
     foregroundColor: "rgb(255, 255, 255)",
     labelColor: "rgb(160, 170, 180)",
-    logoText: WALLET_DEMO.organization,
+    logoText: "Techno Horizon",
     storeCard: {
       primaryFields: [
         { key: "balance", label: "БОНУСЫ", value: WALLET_DEMO.bonusBalance },
@@ -85,8 +87,8 @@ export async function buildApplePass(baseUrl: string): Promise<Buffer> {
     {
       "icon.png": icon,
       "icon@2x.png": icon,
-      "logo.png": icon,
-      "logo@2x.png": icon,
+      "logo.png": logo,
+      "logo@2x.png": logo,
       "pass.json": Buffer.from(JSON.stringify(passJson)),
     },
     {

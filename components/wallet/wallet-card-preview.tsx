@@ -34,10 +34,10 @@ export async function WalletCardPreview() {
                 {WALLET_DEMO.marker}
               </span>
               <div>
-                <p className="text-lg font-semibold tracking-tight text-foreground">
-                  {WALLET_DEMO.organization}
+                <p className="text-xl font-extrabold tracking-[-0.04em] text-foreground">
+                  tmk<span className="text-accent">.</span>
                 </p>
-                <p className="mt-0.5 text-[11px] uppercase tracking-[0.15em] text-muted-foreground">
+                <p className="mt-1 text-[11px] uppercase tracking-[0.15em] text-muted-foreground">
                   {WALLET_DEMO.cardType}
                 </p>
               </div>

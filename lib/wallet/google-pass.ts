@@ -43,7 +43,7 @@ export function buildGoogleSaveUrl(baseUrl: string): string {
   const classId = `${issuerId}.tmk_demo_loyalty`
   const objectId = `${issuerId}.tmk_demo_object_0001`
   const verifyUrl = `${baseUrl}${WALLET_DEMO.verifyPath}`
-  const logoUri = `${baseUrl}/apple-icon.png`
+  const logoUri = `${baseUrl}/wallet/logo-google.png`
 
   const loyaltyClass = {
     id: classId,

@@ -20,11 +20,18 @@ export function Hero() {
       <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-accent/20 rounded-full blur-[120px] animate-glow-pulse" />
       <div className="absolute bottom-1/3 right-1/4 w-[300px] h-[300px] bg-accent/10 rounded-full blur-[100px] animate-glow-pulse" style={{ animationDelay: "2s" }} />
 
-      {/* Floating decorative elements */}
-      <div className="absolute top-1/4 right-[15%] w-20 h-20 border border-accent/20 rounded-2xl animate-float opacity-40" />
-      <div className="absolute bottom-1/3 left-[10%] w-16 h-16 border border-border rounded-full animate-float-slow opacity-30" />
-      <div className="absolute top-1/2 right-[8%] w-3 h-3 bg-accent/40 rounded-full animate-float-delay" />
-      <div className="absolute bottom-1/4 left-[20%] w-2 h-2 bg-foreground/20 rounded-full animate-float" style={{ animationDelay: "1s" }} />
+      {/* Оверсайз-вордмарк на фоне: добавляет глубину и заполняет низ секции */}
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 flex justify-center overflow-hidden"
+        aria-hidden
+      >
+        <span className="translate-y-[30%] select-none text-[25vw] font-extrabold leading-none tracking-tighter text-foreground/[0.04]">
+          tmk<span className="text-accent/20">.</span>
+        </span>
+      </div>
+
+      {/* Единичный парящий акцент вместо разрозненных фигур */}
+      <div className="absolute top-[28%] right-[14%] hidden h-24 w-24 rounded-3xl border border-accent/15 animate-float-slow opacity-60 md:block" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 py-24 md:py-32">
         <div className="flex flex-col items-center text-center">
@@ -39,13 +46,13 @@ export function Hero() {
           </div>
 
           {/* Heading with stagger animation */}
-          <h1 
-            className={`text-4xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight max-w-5xl text-balance ${
+          <h1
+            className={`text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight leading-[1.05] max-w-5xl text-balance ${
               mounted ? "animate-blur-in stagger-1 opacity-100" : "opacity-0"
             }`}
           >
-            <span className="block">TMK Techno Horizon</span>
-            <span className="block mt-2 animate-text-shimmer">Студия цифровых продуктов и автоматизации</span>
+            <span className="block">Студия цифровых продуктов</span>
+            <span className="block mt-2 animate-text-shimmer">и автоматизации</span>
           </h1>
 
           {/* Description */}
@@ -72,40 +79,6 @@ export function Hero() {
             <Button size="lg" variant="outline" className="magnetic-btn border-border hover:bg-card" asChild>
               <a href="#cases">Смотреть кейсы</a>
             </Button>
-          </div>
-
-          {/* Mock UI Element with animation */}
-          <div 
-            className={`mt-20 w-full max-w-4xl ${
-              mounted ? "animate-scale-in stagger-5 opacity-100" : "opacity-0"
-            }`}
-          >
-            <div className="relative rounded-xl border border-border bg-card/50 backdrop-blur-sm p-1 card-hover">
-              <div className="rounded-lg bg-secondary/50 p-8">
-                <div className="flex items-center gap-2 mb-6">
-                  <div className="w-3 h-3 rounded-full bg-red-400/60" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-400/60" />
-                  <div className="w-3 h-3 rounded-full bg-green-400/60" />
-                </div>
-                <div className="grid grid-cols-3 gap-4">
-                  <div className="col-span-1 space-y-3">
-                    <div className="h-8 rounded bg-muted-foreground/10 animate-pulse" style={{ animationDelay: "0s" }} />
-                    <div className="h-8 rounded bg-accent/30" />
-                    <div className="h-8 rounded bg-muted-foreground/10 animate-pulse" style={{ animationDelay: "0.5s" }} />
-                    <div className="h-8 rounded bg-muted-foreground/10 animate-pulse" style={{ animationDelay: "1s" }} />
-                  </div>
-                  <div className="col-span-2 rounded-lg bg-muted-foreground/5 p-4">
-                    <div className="h-4 w-1/3 rounded bg-muted-foreground/20 mb-4" />
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="h-24 rounded bg-muted-foreground/10 hover:bg-accent/20 transition-colors cursor-pointer" />
-                      <div className="h-24 rounded bg-muted-foreground/10 hover:bg-accent/20 transition-colors cursor-pointer" />
-                      <div className="h-24 rounded bg-accent/20" />
-                      <div className="h-24 rounded bg-muted-foreground/10 hover:bg-accent/20 transition-colors cursor-pointer" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

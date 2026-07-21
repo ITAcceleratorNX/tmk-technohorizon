@@ -7,7 +7,7 @@ export default function Home() {
     <main className="min-h-screen bg-background">
       <Header />
       {landingBodySections.map((Section, index) => (
-        <Section key={Section.displayName ?? Section.name ?? index} />
+        <Section key={index} />
       ))}
       <Footer />
     </main>

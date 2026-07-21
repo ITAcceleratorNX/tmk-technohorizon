@@ -1,9 +1,10 @@
 import Link from "next/link"
+import { Logo } from "@/components/logo"
 import { WALLET_DEMO } from "@/lib/wallet/config"
 
 /**
  * Отдельная минималистичная обёртка для демо-страниц Wallet.
- * Вместо логотипа — текстовое название бренда (ТЗ 4.2). Тёмная тема наследуется
+ * В шапке — фирменный логотип tmk. (общий компонент), тёмная тема наследуется
  * из корневого layout (defaultTheme="dark").
  */
 export default function WalletLayout({ children }: { children: React.ReactNode }) {
@@ -11,9 +12,7 @@ export default function WalletLayout({ children }: { children: React.ReactNode }
     <div className="min-h-screen bg-background flex flex-col">
       <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-md">
         <div className="mx-auto max-w-3xl px-5 h-14 flex items-center justify-between">
-          <Link href="/" className="font-semibold text-foreground">
-            {WALLET_DEMO.organization}
-          </Link>
+          <Logo />
           <span className="text-xs text-muted-foreground">Demo</span>
         </div>
       </header>

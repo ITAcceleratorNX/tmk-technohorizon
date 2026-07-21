@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { Logo } from "@/components/logo"
 import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL } from "@/lib/contact"
 
 export function Footer() {
@@ -7,12 +8,8 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="h-8 w-8 rounded-lg bg-accent flex items-center justify-center">
-                <span className="font-bold text-accent-foreground text-sm">TH</span>
-              </div>
-              <span className="font-semibold text-foreground">TMK Techno Horizon</span>
-            </Link>
+            <Logo className="mb-4" />
+
             <p className="text-muted-foreground text-sm max-w-xs leading-relaxed">
               Студия цифровых продуктов и автоматизации. Создаём сайты, веб-платформы и мобильные приложения — от идеи до запуска и роста.
             </p>
